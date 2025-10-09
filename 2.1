@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Multi-Column Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f2f2f2;
+    }
+
+    header {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    .post {
+      background: white;
+      padding: 15px;
+      width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .post img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .post h2 {
+      font-size: 18px;
+      margin: 10px 0 5px;
+    }
+
+    .post p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Simple Blog</h1>
+  </header>
+
+  <div class="container">
+    <div class="post">
+      <img src="https://via.placeholder.com/300x150" alt="Post 1">
+      <h2>Post Title 1</h2>
+      <p>This is a short description of the first post.</p>
+    </div>
+
+    <div class="post">
+      <img src="https://via.placeholder.com/300x150" alt="Post 2">
+      <h2>Post Title 2</h2>
+      <p>This is a short description of the second post.</p>
+    </div>
+
+    <div class="post">
+      <img src="https://via.placeholder.com/300x150" alt="Post 3">
+      <h2>Post Title 3</h2>
+      <p>This is a short description of the third post.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 My Blog</p>
+  </footer>
+
+</body>
+</html>
