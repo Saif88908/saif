@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Multi-column Blog — Grid + Flexbox</title>
+  <style>
+    /* Base / mobile-first */
+    :root{
+      --gap: 1.25rem;
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #0f62fe;
+      --max-width: 1200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#111827;
+      background:var(--bg);
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .container{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:clamp(1rem, 2.5vw, 2rem);
+      display:grid;
+      gap:var(--gap);
+      /* grid areas: mobile stack */
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto 1fr auto;
+      grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    }
+
+    /* Header */
+    header{
+      grid-area: header;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+    }
+    .brand{
+      display:flex;
+      gap:.8rem;
+      align-items:center;
+    }
+    .logo{
+      width:44px;
+      height:44px;
+      border-radius:8px;
+      background:linear-gradient(135deg,#0f62fe,#7c3aed);
+      display:inline-grid;
+      place-items:center;
+      color:white;
+      font-weight:700;
+      font-size:1.05rem;
+    }
+    .site-title{font-size:1.1rem; font-weight:700}
+    .site-sub{font-size:.85rem; color:var(--muted)}
+
+    /* Nav */
+    nav{
+      grid-area: nav;
+      display:flex;
+      gap:.5rem;
+      flex-wrap:wrap;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-size:.95rem;
+      padding:.4rem .6rem;
+      border-radius:6px;
+    }
+    nav a:hover{background:rgba(15,98,254,.08); color:var(--accent)}
+
+    /* Main grid for content + sidebar using named areas */
+    .layout{
+      grid-area: main;
+      display:grid;
+      gap:var(--gap);
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "content"
+        "sidebar";
+    }
+
+    /* Content column */
+    .content{grid-area: content; display:flex; flex-direction:column; gap:var(--gap)}
+    .hero{
+      background: linear-gradient(180deg, rgba(15,98,254,0.08), rgba(124,58,237,0.03));
+      border-radius:10px;
+      padding:1rem;
+      display:flex;
+      gap:1rem;
+      align-items:center;
+    }
+    .hero .left{flex:1}
+    .hero h2{margin:.1rem 0 0.25rem 0}
+    .hero p{margin:0; color:var(--muted)}
+
+    /* Posts list */
+    .posts{display:flex; flex-direction:column; gap:var(--gap)}
+    article.post{
+      background:var(--card);
+      border-radius:10px;
+      padding:1rem;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:.8rem;
+    }
+
+    /* Post header uses Flexbox for controls */
+    .post-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+    }
+    .post-meta{color:var(--muted); font-size:.9rem}
+    .post-title{margin:.15rem 0 0 0; font-size:1.05rem}
+
+    .post-body{color:#111827}
+    .post-image{
+      width:100%;
+      aspect-ratio: 16/7;
+      border-radius:8px;
+      background-size:cover;
+      background-position:center;
+    }
+
+    .post-footer{
+      display:flex;
+      gap:.6rem;
+      align
