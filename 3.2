@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar with Dropdown</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      display: block;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #444;
+      min-width: 150px;
+      top: 48px;
+      left: 0;
+      border-radius: 4px;
+    }
+
+    .dropdown-content a {
+      padding: 10px 15px;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #666;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+
+    <div class="dropdown">
+      <a href="#" id="servicesBtn">Services ▾</a>
+      <div class="dropdown-content" id="dropdownMenu">
+        <a href="#">Web Design</a>
+        <a href="#">SEO</a>
+        <a href="#">Marketing</a>
+      </div>
+    </div>
+
+    <a href="#">Contact</a>
+  </nav>
+
+  <script>
+    const btn = document.getElementById("servicesBtn");
+    const menu = document.getElementById("dropdownMenu");
+
+    btn.addEventListener("click", function(e) {
+      e.preventDefault(); // prevents page jump
+      menu.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener("click", function(e) {
+      if (!e.target.matches("#servicesBtn")) {
+        menu.classList.remove("show");
+      }
+    });
+  </script>
+
+</body>
+</html>
