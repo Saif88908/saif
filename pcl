@@ -1,0 +1,313 @@
+Here are the three C programs separately, each written clearly and simply 👇
+
+⸻
+
+a) Read a character using getchar() and display it using putchar()
+
+#include <stdio.h>
+
+int main() {
+    char ch;
+
+    printf("Enter a character: ");
+    ch = getchar();     // Reads a single character
+    printf("You entered: ");
+    putchar(ch);        // Displays the same character
+
+    return 0;
+}
+
+
+⸻
+
+b) Read two integers using scanf() and display their sum, difference, product, and quotient
+
+#include <stdio.h>
+
+int main() {
+    int a, b;
+
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);  // Reads two integers
+
+    printf("Sum = %d\n", a + b);
+    printf("Difference = %d\n", a - b);
+    printf("Product = %d\n", a * b);
+    printf("Quotient = %d\n", a / b);
+
+    return 0;
+}
+
+
+⸻
+
+c) Read a string (full name) using gets() and display it using puts()
+
+#include <stdio.h>
+
+int main() {
+    char name[100];
+
+    printf("Enter your full name: ");
+    gets(name);       // Reads string (unsafe but simple for learning)
+    printf("Your full name is: ");
+    puts(name);       // Displays the string
+
+    return 0;
+}
+
+
+⸻
+
+Would you like me to rewrite (c) using the safe alternative fgets() instead of gets()?
+
+
+
+
+ Here are the three C programs separately, written in a simple beginner-friendly format 👇
+
+⸻
+
+a) Read two integer values from the user
+
+#include <stdio.h>
+
+int main() {
+    int a, b;
+
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);   // Read two integer values
+
+    printf("You entered: %d and %d\n", a, b);
+
+    return 0;
+}
+
+
+⸻
+
+b) Demonstrate relational operators (==, !=, <, >, <=, >=)
+
+#include <stdio.h>
+
+int main() {
+    int a, b;
+
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+
+    printf("a == b : %d\n", a == b);
+    printf("a != b : %d\n", a != b);
+    printf("a <  b : %d\n", a < b);
+    printf("a >  b : %d\n", a > b);
+    printf("a <= b : %d\n", a <= b);
+    printf("a >= b : %d\n", a >= b);
+
+    return 0;
+}
+
+
+⸻
+
+c) Use logical operators (&&, ||, !)
+
+#include <stdio.h>
+
+int main() {
+    int a, b;
+
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+
+    printf("(a > 0 && b > 0) : %d\n", (a > 0 && b > 0));   // Both positive
+    printf("(a > 0 || b > 0) : %d\n", (a > 0 || b > 0));   // At least one positive
+    printf("!(a > 0) : %d\n", !(a > 0));                   // NOT operator
+
+    return 0;
+}
+
+
+⸻
+
+Would you like me to combine all three (a, b, and c) into one single program next?
+
+
+
+
+do while loop
+
+
+Here’s a simple demonstration of while, do-while, and for loops in C — each shown separately 👇
+
+⸻
+
+a) While Loop
+
+#include <stdio.h>
+
+int main() {
+    int i = 1;
+
+    printf("While loop:\n");
+    while (i <= 5) {
+        printf("%d\n", i);
+        i++;
+    }
+
+    return 0;
+}
+
+Explanation:
+	•	The loop checks the condition before executing.
+	•	It prints numbers 1 to 5.
+
+⸻
+
+b) Do-While Loop
+
+#include <stdio.h>
+
+int main() {
+    int i = 1;
+
+    printf("Do-While loop:\n");
+    do {
+        printf("%d\n", i);
+        i++;
+    } while (i <= 5);
+
+    return 0;
+}
+
+Explanation:
+	•	The loop executes at least once even if the condition is false.
+	•	Prints numbers 1 to 5.
+
+⸻
+
+c) For Loop
+
+#include <stdio.h>
+
+int main() {
+    printf("For loop:\n");
+    for (int i = 1; i <= 5; i++) {
+        printf("%d\n", i);
+    }
+
+    return 0;
+}
+
+Explanation:
+	•	The for loop includes initialization, condition, and increment in one line.
+	•	Prints numbers 1 to 5 in order.
+
+⸻
+
+Would you like me to combine all three loop demonstrations into a single program (one after another)?
+
+
+
+3.1 nested structure
+
+#include <stdio.h>
+
+int main() {
+    int choice, i;
+
+    while (1) {   // Outer loop — runs until 'break' is used
+        printf("\n--- Menu ---\n");
+        printf("1. Print numbers 1 to 5\n");
+        printf("2. Skip number 3 using continue\n");
+        printf("3. Exit program\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Numbers from 1 to 5:\n");
+                for (i = 1; i <= 5; i++) {
+                    printf("%d ", i);
+                }
+                printf("\n");
+                break;
+
+            case 2:
+                printf("Numbers from 1 to 5 (skipping 3):\n");
+                for (i = 1; i <= 5; i++) {
+                    if (i == 3)
+                        continue;  // Skips number 3
+                    printf("%d ", i);
+                }
+                printf("\n");
+                break;
+
+            case 3:
+                printf("Exiting program...\n");
+                break;   // Breaks from switch
+            default:
+                printf("Invalid choice! Try again.\n");
+        }
+
+        if (choice == 3)
+            break;  // Breaks from while loop
+    }
+
+    return 0;
+}
+
+
+3.2 goto
+
+
+#include <stdio.h>
+
+int main() {
+    int choice, i;
+
+menu:   // Label for goto
+    printf("\n--- Menu ---\n");
+    printf("1. Print numbers 1 to 5\n");
+    printf("2. Skip number 3 using continue\n");
+    printf("3. Go back to menu using goto\n");
+    printf("4. Exit program\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            printf("Numbers from 1 to 5:\n");
+            for (i = 1; i <= 5; i++) {
+                printf("%d ", i);
+            }
+            printf("\n");
+            break;
+
+        case 2:
+            printf("Numbers from 1 to 5 (skipping 3):\n");
+            for (i = 1; i <= 5; i++) {
+                if (i == 3)
+                    continue;   // Skips 3
+                printf("%d ", i);
+            }
+            printf("\n");
+            break;
+
+        case 3:
+            printf("Returning to menu using goto...\n");
+            goto menu;          // Jumps back to label
+            break;
+
+        case 4:
+            printf("Exiting program...\n");
+            return 0;           // Ends the program
+
+        default:
+            printf("Invalid choice! Try again.\n");
+            goto menu;          // Return to menu on invalid input
+    }
+
+    goto menu;  // After executing any valid case, go back to menu
+}
+
+
