@@ -1,0 +1,598 @@
+4.1 Method Overloading (Area & Volume Calculator)
+1. Aim
+To write a Java program that calculates area of 2D shapes and volume of 3D shapes using method overloading.
+ 
+2. Theory
+Method overloading is a feature in Java that allows multiple methods to have the same name but different parameters (type, number, or order). It increases code readability and flexibility by allowing a single method name to perform different tasks.
+In this program, method overloading is used to calculate areas and volumes of different shapes. For example, the same method name calculate() can be used for circle, rectangle, square, triangle, sphere, cylinder, cuboid, and cube, but with different parameters.
+For 2D shapes:
+• Circle: πr²
+• Rectangle: length × breadth
+• Square: side²
+• Triangle: ½ × base × height
+For 3D shapes:
+• Sphere: (4/3)πr³
+• Cylinder: πr²h
+• Cuboid: l × b × h
+• Cube: side³
+The compiler differentiates methods based on their parameter list. This demonstrates polymorphism, which is an important concept in object-oriented programming.
+ 
+3. Code
+class Shape {
+
+   double calculate(double r) { // Circle
+       return 3.14 * r * r;
+   }
+
+   double calculate(double l, double b) { // Rectangle
+       return l * b;
+   }
+
+   double calculate(int side) { // Square
+       return side * side;
+   }
+
+   double calculate(double base, double height, String type) { // Triangle
+       return 0.5 * base * height;
+   }
+
+   double calculateVolume(double r, String shape) { // Sphere
+       return (4.0/3) * 3.14 * r * r * r;
+   }
+
+   double calculateVolume(double r, double h) { // Cylinder
+       return 3.14 * r * r * h;
+   }
+
+   double calculateVolume(double l, double b, double h) { // Cuboid
+       return l * b * h;
+   }
+
+   double calculateVolume(int side) { // Cube
+       return side * side * side;
+   }
+}
+
+public class OverloadingDemo {
+   public static void main(String[] args) {
+       Shape s = new Shape();
+
+       System.out.println("Circle Area: " + s.calculate(5));
+       System.out.println("Rectangle Area: " + s.calculate(4, 6));
+       System.out.println("Square Area: " + s.calculate(4));
+       System.out.println("Triangle Area: " + s.calculate(5, 6, "triangle"));
+
+       System.out.println("Sphere Volume: " + s.calculateVolume(3, "sphere"));
+       System.out.println("Cylinder Volume: " + s.calculateVolume(3, 5));
+       System.out.println("Cuboid Volume: " + s.calculateVolume(2, 3, 4));
+       System.out.println("Cube Volume: " + s.calculateVolume(3));
+   }
+}
+ 
+4. Output
+ 
+5. Conclusion
+This program demonstrates how method overloading can simplify code by using the same method name for different operations. It improves readability and reduces complexity.
+It also highlights the concept of polymorphism, where a single interface can perform multiple tasks. This approach is widely used in real-world applications to handle different scenarios efficiently.
+Understanding method overloading is essential for writing clean, efficient, and maintainable code in Java.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4.2 Constructor Overloading (Student Class)
+1. Aim
+To create a Java program that demonstrates constructor overloading using a Student class.
+ 
+2. Theory
+A constructor is a special method used to initialize objects. It has the same name as the class and does not have a return type. Constructor overloading allows multiple constructors with different parameters.
+This program uses different constructors to initialize student objects in various ways:
+• Default constructor
+• Constructor with roll number
+• Constructor with full details
+This flexibility allows objects to be created based on available data. It improves usability and adaptability of the class.
+ 
+3. Code
+class Student {
+   int rollNumber;
+   String name;
+   String department;
+
+   Student() {
+       rollNumber = 0;
+       name = "Unknown";
+       department = "None";
+   }
+
+   Student(int r) {
+       rollNumber = r;
+       name = "Unknown";
+       department = "None";
+   }
+
+   Student(int r, String n, String d) {
+       rollNumber = r;
+       name = n;
+       department = d;
+   }
+
+   void display() {
+       System.out.println(rollNumber + " " + name + " " + department);
+   }
+}
+
+public class ConstructorDemo {
+   public static void main(String[] args) {
+       Student s1 = new Student();
+       Student s2 = new Student(101);
+       Student s3 = new Student(102, "Ali", "IT");
+
+       s1.display();
+       s2.display();
+       s3.display();
+   }
+}
+ 
+4. Output
+0 Unknown None
+101 Unknown None
+102 Ali IT
+ 
+5. Conclusion
+This program shows how constructor overloading allows flexible object creation. It helps initialize objects in multiple ways depending on available information.
+It improves code reusability and supports real-world scenarios where complete data may not always be available.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4.3 Static Members & Functions
+1. Aim
+To write a Java program demonstrating the use of static variables and static methods.
+ 
+2. Theory
+Static members belong to the class rather than objects. They are shared among all instances. Static variables store common data, while static methods can be called without creating objects.
+They are useful for memory efficiency and for representing common properties like counters.
+ 
+3. Code
+class Counter {
+   static int count = 0;
+
+   Counter() {
+       count++;
+   }
+
+   static void displayCount() {
+       System.out.println("Total Objects: " + count);
+   }
+}
+
+public class StaticDemo {
+   public static void main(String[] args) {
+       Counter c1 = new Counter();
+       Counter c2 = new Counter();
+       Counter c3 = new Counter();
+
+       Counter.displayCount();
+   }
+}
+ 
+4. Output
+Total Objects: 3
+ 
+5. Conclusion
+This program demonstrates how static members are shared among all objects. It shows efficient memory usage and class-level operations.
+Static methods simplify access without object creation and are widely used in utility functions and real-world applications.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+5.1 String Class Methods
+1. Aim
+To write a Java program demonstrating various methods of the String class.
+ 
+2. Theory
+In Java, the String class is one of the most widely used classes for handling textual data. A string is basically a sequence of characters enclosed in double quotes. One important feature of strings in Java is that they are immutable, meaning once a string object is created, its value cannot be changed. Any modification results in the creation of a new object.
+The String class provides many built-in methods that help in performing operations such as comparison, searching, modification, and extraction of substrings. Some commonly used methods include:
+• length() → returns length of string
+• toUpperCase() / toLowerCase() → case conversion
+• charAt() → returns character at specific index
+• substring() → extracts part of string
+• equals() → compares two strings
+• contains() → checks substring presence
+These methods are essential in real-world applications like form validation, text processing, search engines, and data parsing.
+Understanding string methods is important because almost every application deals with text data, whether it is user input, file handling, or database interaction.
+ 
+3. Code
+public class StringDemo {
+   public static void main(String[] args) {
+       String str = "Hello Java";
+
+       System.out.println("Length: " + str.length());
+       System.out.println("Uppercase: " + str.toUpperCase());
+       System.out.println("Lowercase: " + str.toLowerCase());
+       System.out.println("Character at index 1: " + str.charAt(1));
+       System.out.println("Substring: " + str.substring(0, 5));
+       System.out.println("Equals 'Hello Java': " + str.equals("Hello Java"));
+       System.out.println("Contains 'Java': " + str.contains("Java"));
+   }
+}
+ 
+4. Output
+Length: 10
+Uppercase: HELLO JAVA
+Lowercase: hello java
+Character at index 1: e
+Substring: Hello
+Equals 'Hello Java': true
+Contains 'Java': true
+ 
+5. Conclusion
+This program demonstrates how powerful and flexible the String class is in Java. It allows easy manipulation and analysis of text data using built-in methods.
+Understanding strings is essential for developing real-world applications such as login systems, text editors, and data processing systems. Mastering string operations improves programming efficiency and helps in writing clean and effective code.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+5.2 StringBuffer Class
+1. Aim
+To demonstrate various methods of the StringBuffer class.
+ 
+2. Theory
+StringBuffer is a mutable class in Java used for handling strings that can be modified after creation. Unlike the String class, where changes create new objects, StringBuffer allows in-place modifications, making it more efficient when frequent changes are required.
+It provides methods such as:
+• append() → adds text
+• insert() → inserts text
+• replace() → replaces characters
+• delete() → removes characters
+• reverse() → reverses string
+StringBuffer is thread-safe, meaning it is synchronized and safe for use in multi-threaded environments.
+ 
+3. Code
+public class StringBufferDemo {
+   public static void main(String[] args) {
+       StringBuffer sb = new StringBuffer("Hello");
+
+       sb.append(" Java");
+       System.out.println("Append: " + sb);
+
+       sb.insert(5, " World");
+       System.out.println("Insert: " + sb);
+
+       sb.replace(0, 5, "Hi");
+       System.out.println("Replace: " + sb);
+
+       sb.delete(2, 7);
+       System.out.println("Delete: " + sb);
+
+       sb.reverse();
+       System.out.println("Reverse: " + sb);
+   }
+}
+ 
+4. Output
+Append: Hello Java
+Insert: Hello World Java
+Replace: Hi World Java
+Delete: HiJava
+Reverse: avaJiH
+ 
+5. Conclusion
+This program highlights the advantages of using StringBuffer for mutable string operations. It is more efficient than String when performing multiple modifications.
+Understanding StringBuffer is useful in applications where performance is critical, such as text editors, dynamic string manipulation, and multi-threaded programs.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+5.3 Maximum Element in Array
+1. Aim
+To find the maximum element in an integer array.
+ 
+2. Theory
+Arrays are used to store multiple values of the same type. In this program, we traverse the array and compare each element to find the maximum value.
+We initialize a variable with the first element and then compare it with the remaining elements using a loop. If a larger element is found, it replaces the current maximum.
+ 
+3. Code
+public class MaxArray {
+   public static void main(String[] args) {
+       int[] arr = {10, 45, 23, 67, 89, 12};
+
+       int max = arr[0];
+
+       for (int i = 1; i < arr.length; i++) {
+           if (arr[i] > max) {
+               max = arr[i];
+           }
+       }
+
+       System.out.println("Maximum Element: " + max);
+   }
+}
+ 
+4. Output
+Maximum Element: 89
+ 
+5. Conclusion
+This program demonstrates array traversal and comparison logic. It is a fundamental concept used in searching and sorting algorithms.
+ 
+7.1 Inheritance (Employee & Manager)
+1. Aim
+To demonstrate inheritance using Employee and Manager classes.
+ 
+2. Theory
+Inheritance is a key concept of Object-Oriented Programming that allows one class to acquire properties of another. The parent class is called superclass and the child is subclass.
+It promotes code reuse and hierarchy.
+ 
+3. Code
+class Employee {
+   String name;
+   double salary;
+
+   void getDetails(String n, double s) {
+       name = n;
+       salary = s;
+   }
+
+   void display() {
+       System.out.println("Name: " + name);
+       System.out.println("Salary: " + salary);
+   }
+}
+
+class Manager extends Employee {
+   String department;
+
+   void setDept(String d) {
+       department = d;
+   }
+
+   void showManager() {
+       display();
+       System.out.println("Department: " + department);
+   }
+}
+
+public class InheritanceDemo {
+   public static void main(String[] args) {
+       Manager m = new Manager();
+       m.getDetails("Ali", 50000);
+       m.setDept("IT");
+       m.showManager();
+   }
+}
+ 
+4. Output
+Name: Ali
+Salary: 50000.0
+Department: IT
+ 
+5. Conclusion
+This program demonstrates how inheritance helps in code reuse and hierarchical design. It simplifies programming and improves maintainability.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+7.2 Method Overriding (Vehicle → Car → SportsCar)
+1. Aim
+To demonstrate method overriding and use of super keyword.
+ 
+2. Theory
+Method overriding allows a subclass to provide a specific implementation of a method already defined in the parent class.
+ 
+3. Code
+class Vehicle {
+   void showSpeed() {
+       System.out.println("Vehicle Speed: 60 km/h");
+   }
+}
+
+class Car extends Vehicle {
+   void showSpeed() {
+       System.out.println("Car Speed: 120 km/h");
+   }
+}
+
+class SportsCar extends Car {
+   void showSpeed() {
+       super.showSpeed();
+       System.out.println("SportsCar Speed: 200 km/h");
+   }
+}
+
+public class OverrideDemo {
+   public static void main(String[] args) {
+       SportsCar s = new SportsCar();
+       s.showSpeed();
+   }
+}
+ 
+4. Output
+Car Speed: 120 km/h
+SportsCar Speed: 200 km/h
+ 
+5. Conclusion
+This program shows how overriding allows dynamic behavior. The super keyword helps call parent methods.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+8.1 Abstract Class (Shape)
+1. Aim
+To demonstrate abstract classes and polymorphism.
+ 
+2. Theory
+Abstract classes cannot be instantiated and may contain abstract methods. Subclasses must implement them.
+ 
+3. Code
+abstract class Shape {
+   String color;
+
+   abstract double calculateArea();
+
+   void draw() {
+       System.out.println("Drawing shape");
+   }
+}
+
+class Circle extends Shape {
+   double r;
+
+   Circle(double r) {
+       this.r = r;
+   }
+
+   double calculateArea() {
+       return 3.14 * r * r;
+   }
+}
+
+class Rectangle extends Shape {
+   double l, b;
+
+   Rectangle(double l, double b) {
+       this.l = l;
+       this.b = b;
+   }
+
+   double calculateArea() {
+       return l * b;
+   }
+}
+
+public class AbstractDemo {
+   public static void main(String[] args) {
+       Shape s1 = new Circle(5);
+       Shape s2 = new Rectangle(4, 6);
+
+       System.out.println("Circle Area: " + s1.calculateArea());
+       System.out.println("Rectangle Area: " + s2.calculateArea());
+   }
+}
+ 
+4. Output
+Circle Area: 78.5
+Rectangle Area: 24.0
+ 
+5. Conclusion
+This program demonstrates abstraction and polymorphism. It helps in designing flexible and scalable systems.
+ 
+ 
+ 
+ 
+ 
